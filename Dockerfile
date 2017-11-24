@@ -1,5 +1,6 @@
-FROM alpine
+FROM ubuntu 
 
-RUN apk add --no-cache build-base gcc abuild binutils cmake
+RUN apt-get -y update && apt-get -y upgrade
+RUN apt-get -y install g++ cmake make
 RUN mkdir -p /data/src /data/build
 WORKDIR /data/build

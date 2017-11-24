@@ -1,0 +1,2 @@
+#!/bin/bash
+docker run --rm --user $UID -v $SIMPLE_CMAKE_SRC_PATH:/data/src -v $SIMPLE_CMAKE_BUILD_PATH:/data/build simple-cmake /bin/sh -c "cmake ../src && make"

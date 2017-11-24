@@ -1,2 +1,11 @@
 #!/bin/bash
+
+if [[ -z "${SIMPLE_CMAKE_SRC_PATH}" ]] || [[ -z "${SIMPLE_CMAKE_BUILD_PATH}" ]]; then
+    echo "Environment variables SIMPLE_CMAKE_SRC_PATH or SIMPLE_CMAKE_BUILD_PATH doesn't exist. Exiting..." 
+    exit 1;
+fi
+
+echo "Source path: ${SIMPLE_CMAKE_SRC_PATH}"
+echo "Build path: ${SIMPLE_CMAKE_BUILD_PATH}"
+
 docker run --rm --user $UID -v $SIMPLE_CMAKE_SRC_PATH:/data/src -v $SIMPLE_CMAKE_BUILD_PATH:/data/build simple-cmake /bin/sh -c "cmake ../src && make"
